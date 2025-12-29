@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediमित्र | AI Health Companion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="#" class="logo" data-page="home">
+                    <div class="logo-icon">
+                        <i class="fas fa-heartbeat"></i>                    </div>
+                    <div class="logo-text">Medi<span>मित्र</span></div>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="nav-links" id="navLinks">
+                    <a href="#" class="nav-link active" data-section="hero">Home</a>
+                    <a href="#" class="nav-link" data-section="features">Features</a>
+                    <a href="#" class="nav-link" data-section="how-it-works">How It Works</a>
+                    <a href="#" class="nav-link" data-section="testimonials">Testimonials</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="language-selector">
+                        <button class="language-btn" id="languageBtn">
+                            <i class="fas fa-globe"></i>
+                            <span class="current-language">English</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <a href="#" class="language-option active" data-lang="en">
+                                <i class="fas fa-language"></i> English
+                            </a>
+                            <a href="#" class="language-option" data-lang="hi">
+                                <i class="fas fa-language"></i> हिन्दी
+                            </a>
+                        </div>
+                    </div>
+
+                    <button class="mobile-language-toggle" id="mobileLanguageToggle">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <a href="signin.html">
+                    <button class="btn btn-outline" id="signInBtn">Sign In</button>
+                    </a>
+                    <a href="signup.html">
+                    <button class="btn btn-primary" id="getStartedBtn">Get Started Free</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Language Dropdown -->
+    <div class="mobile-language-dropdown" id="mobileLanguageDropdown">
+        <a href="#" class="language-option active" data-lang="en">
+            <i class="fas fa-language"></i> English
+        </a>
+        <a href="#" class="language-option" data-lang="hi">
+            <i class="fas fa-language"></i> हिन्दी
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-i18n="hero.title">Your Personal AI <span>Health Companion</span></h1>
+                <p data-i18n="hero.subtitle">Automating hospital & insurance workflows with intelligence. Streamline medical coding, claims processing, and patient management with our AI-powered platform.</p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="startFreeBtn">
+                        <i class="fas fa-rocket"></i>
+                       <a href="signup.html" style="text-decoration: none; color: white;">
+  <span data-i18n="hero.startTrial">Start Free Trial</span>
+</a>
+
+                    </button>
+                    <button class="btn btn-outline" id="watchDemoBtn">
+                        <i class="fas fa-play-circle"></i>
+                        <span data-i18n="hero.watchDemo">Watch Demo</span>
+                    </button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label" data-i18n="hero.accuracy">Accuracy Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label" data-i18n="hero.timeSaved">Time Saved</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label" data-i18n="hero.support">AI Support</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="hero-visual">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <i class="fas fa-robot" style="font-size: 60px; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3 style="color: var(--text-primary); margin-bottom: 10px;" data-i18n="hero.flowTitle">AI Processing Flow</h3>
+                        <p style="color: var(--text-secondary);" data-i18n="hero.flowSubtitle">Document → Code → Claim</p>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--card-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; box-shadow: var(--shadow); border: 1px solid var(--border-color);">
+                                <i class="fas fa-file-medical" style="color: var(--primary); font-size: 24px;"></i>
+                            </div>
+                            <span style="font-size: 14px; color: var(--text-primary);" data-i18n="hero.upload">Upload</span>
+                        </div>
+                        
+                        <div style="flex: 1; height: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary)); margin: 0 20px; position: relative;">
+                            <div style="position: absolute; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; top: -8px; left: 0; animation: moveDot 2s infinite linear;"></div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--card-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; box-shadow: var(--shadow); border: 1px solid var(--border-color);">
+                                <i class="fas fa-code" style="color: var(--secondary); font-size: 24px;"></i>
+                            </div>
+                            <span style="font-size: 14px; color: var(--text-primary);" data-i18n="hero.aiCoding">AI Coding</span>
+                        </div>
+                        
+                        <div style="flex: 1; height: 3px; background: linear-gradient(90deg, var(--secondary), var(--accent)); margin: 0 20px; position: relative;">
+                            <div style="position: absolute; width: 20px; height: 20px; background: var(--secondary); border-radius: 50%; top: -8px; left: 0; animation: moveDot 2s infinite linear; animation-delay: 0.5s;"></div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--card-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; box-shadow: var(--shadow); border: 1px solid var(--border-color);">
+                                <i class="fas fa-file-invoice-dollar" style="color: var(--accent); font-size: 24px;"></i>
+                            </div>
+                            <span style="font-size: 14px; color: var(--text-primary);" data-i18n="hero.claim">Claim</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="features.title">Powerful Features</h2>
+                <p data-i18n="features.subtitle">Everything you need to streamline healthcare administration</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 data-i18n="features.aiCoding">AI-Powered Coding</h3>
+                    <p data-i18n="features.aiCodingDesc">Automatically suggests accurate ICD-10 and CPT codes from medical documents with 95% accuracy.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 data-i18n="features.claims">Instant Claims Processing</h3>
+                    <p data-i18n="features.claimsDesc">Generate and submit insurance claims in seconds instead of hours. Real-time tracking and status updates.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-i18n="features.hipaa">HIPAA Compliant</h3>
+                    <p data-i18n="features.hipaaDesc">Bank-level security and HIPAA compliance ensure your patient data is always protected.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-i18n="features.analytics">Analytics Dashboard</h3>
+                    <p data-i18n="features.analyticsDesc">Comprehensive insights into coding accuracy, claim status, and workflow efficiency.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 data-i18n="features.automation">Workflow Automation</h3>
+                    <p data-i18n="features.automationDesc">Automate repetitive tasks and streamline hospital & insurance workflows end-to-end.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 data-i18n="features.assistant">AI Assistant</h3>
+                    <p data-i18n="features.assistantDesc">24/7 AI assistant to answer questions, provide coding guidance, and resolve queries instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" id="how-it-works" style="background: var(--bg-tertiary);">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="works.title">How It Works</h2>
+                <p data-i18n="works.subtitle">Three simple steps to transform your healthcare administration</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 data-i18n="works.step1">Upload Documents</h3>
+                    <p data-i18n="works.step1Desc">Upload medical documents, clinical notes, or patient records through our secure portal.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 data-i18n="works.step2">AI Processes & Codes</h3>
+                    <p data-i18n="works.step2Desc">Our AI analyzes documents and suggests accurate medical codes with confidence scores.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 data-i18n="works.step3">Generate Claims</h3>
+                    <p data-i18n="works.step3Desc">Create insurance claims with one click and track their status in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="testimonials.title">Trusted by Healthcare Professionals</h2>
+                <p data-i18n="testimonials.subtitle">See what our users say about Mediमित्र</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-i18n="testimonials.quote">
+                        "Mediमित्र has reduced our coding time by 70% and improved accuracy significantly. The AI suggestions are incredibly accurate and have streamlined our entire workflow."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SD</div>
+                        <div class="author-info">
+                            <h4 data-i18n="testimonials.author">Dr. Sarah Davis</h4>
+                            <p data-i18n="testimonials.position">Chief Medical Officer, City Hospital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2 style="font-size: 36px; margin-bottom: 20px;" data-i18n="cta.title">Ready to Transform Your Healthcare Workflow?</h2>
+            <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;" data-i18n="cta.subtitle">Join thousands of healthcare professionals using Mediमित्र</p>
+            <button class="btn btn-secondary" id="ctaGetStarted" style="font-size: 18px; padding: 15px 40px;">
+                <i class="fas fa-rocket"></i>
+                <span data-i18n="cta.button">Start Your Free Trial</span>
+            </button>
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+                <i class="fas fa-credit-card"></i> <span data-i18n="cta.noCard">No credit card required</span> • 
+                <i class="fas fa-clock"></i> <span data-i18n="cta.quickStart">Get started in 2 minutes</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Mediमित्र</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6;" data-i18n="footer.description">
+                        Your personal AI health companion for automating hospital and insurance workflows with intelligence.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 data-i18n="footer.product">Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-section="features" data-i18n="footer.features">Features</a></li>
+                        <li><a href="#" data-section="how-it-works" data-i18n="footer.howItWorks">How It Works</a></li>
+                        <li><a href="#" data-i18n="footer.pricing">Pricing</a></li>
+                        <li><a href="#" data-i18n="footer.api">API Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 data-i18n="footer.company">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="footer.about">About Us</a></li>
+                        <li><a href="#" data-i18n="footer.careers">Careers</a></li>
+                        <li><a href="#" data-i18n="footer.blog">Blog</a></li>
+                        <li><a href="#" data-i18n="footer.contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 data-i18n="footer.legal">Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="footer.privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="footer.terms">Terms of Service</a></li>
+                        <li><a href="#" data-i18n="footer.cookies">Cookie Policy</a></li>
+                        <li><a href="#" data-i18n="footer.hipaa">HIPAA Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2024 Mediमित्र. All rights reserved.</p>
+                <p style="margin-top: 10px; font-size: 13px; color: var(--text-secondary);">
+                    <i class="fas fa-shield-alt"></i> <span data-i18n="footer.hipaaBadge">HIPAA Compliant</span> • 
+                    <i class="fas fa-lock"></i> <span data-i18n="footer.security">Bank-Level Security</span> • 
+                    <i class="fas fa-server"></i> <span data-i18n="footer.uptime">99.9% Uptime</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+<!-- Backend Status Indicator -->
+<div class="backend-status" id="backendStatus" style="
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    display: none;
+">
+    <div class="status-dot" style="
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--success);
+    "></div>
+    <span>AI Connected</span>
+</div>
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chat-header">
+                <h3><i class="fas fa-robot"></i> Mediमित्र Assistant</h3>
+                <button class="close-chat" id="closeChat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="chat-message bot-message">
+                    Hello! I'm your Mediमित्र AI Assistant. How can I help you today?
+                </div>
+                <div class="quick-replies">
+                    <div class="quick-reply" data-question="What is Mediमित्र?">What is Mediमित्र?</div>
+                    <div class="quick-reply" data-question="How does AI coding work?">How does AI coding work?</div>
+                    <div class="quick-reply" data-question="Is it HIPAA compliant?">Is it HIPAA compliant?</div>
+                    <div class="quick-reply" data-question="How to get started?">How to get started?</div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." maxlength="500">
+                <button class="send-button" id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <button class="chatbot-toggle pulse" id="chatbotToggle">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
