@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediमित्र | AI Health Dashboard</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-heartbeat"></i>
+                <h2>Medi<span>मित्र</span></h2>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p>Loading your dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Brand Logo -->
+            <div class="brand">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <div class="logo-text">
+                        <h1>Medi<span>मित्र</span></h1>
+                        <p>AI Health Companion</p>
+                    </div>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Dr+Patel&background=2563eb&color=fff" alt="User Avatar">
+                    <div class="status-indicator active"></div>
+                </div>
+                <div class="user-info">
+                    <h3>Dr. Rajesh Patel</h3>
+                    <p>Cardiology Department</p>
+                    <span class="user-role">Medical Director</span>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="main-nav">
+                <ul>
+                    <li>
+                        <a href="#" class="nav-item active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                            <span class="nav-badge">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="patients.html" class="nav-item">
+                            <i class="fas fa-user-injured"></i>
+                            <span>Patients</span>
+                            <span class="nav-badge">24</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="documents.html" class="nav-item">
+                            <i class="fas fa-file-medical"></i>
+                            <span>Documents</span>
+                            <span class="nav-badge">42</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html" class="nav-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                  
+                </ul>
+            </nav>
+            <!-- Footer -->
+            <div class="sidebar-footer">
+                <a href="settings.html" class="settings-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="index.html">
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+              </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h2>Dashboard Overview</h2>
+                    <p class="welcome-text">Welcome back, Dr. Patel. Here's your medical activity summary.</p>
+                </div>
+
+                <div class="header-right">
+                    <!-- Search -->
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search patients, claims, documents..." id="searchInput">
+                    </div>
+
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <select id="languageSelect">
+                            <option value="en">🇺🇸 English</option>
+                            <option value="hi">🇮🇳 हिंदी</option>
+                            <option value="mr">🇮🇳 मराठी</option>
+                            <option value="ta">🇮🇳 தமிழ்</option>
+                            <option value="te">🇮🇳 తెలుగు</option>
+                        </select>
+                    </div>
+
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+
+                    <!-- Notifications -->
+                    <div class="notifications" id="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count">3</span>
+                        </button>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h4>Notifications</h4>
+                                <button class="mark-all-read">Mark all as read</button>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item unread">
+                                    <div class="notification-icon success">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p><strong>Claim Approved</strong> for Patient #P1024</p>
+                                        <span>5 minutes ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item unread">
+                                    <div class="notification-icon warning">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p><strong>Document Review Required</strong> for Patient #P1025</p>
+                                        <span>2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-icon info">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p><strong>New Patient Added</strong> by Dr. Sharma</p>
+                                        <span>1 day ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="view-all">View All Notifications</a>
+                        </div>
+                    </div>
+
+                    <!-- User Menu -->
+                    <div class="user-menu">
+                        <button class="user-menu-btn">
+                            <div class="user-avatar-small">
+                                <img src="https://ui-avatars.com/api/?name=Dr+Patel&background=2563eb&color=fff" alt="User">
+                            </div>
+                            <span>Dr. Patel</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-menu-dropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i> My Profile
+                            </a>
+                            <a href="settings.html">
+                                <i class="fas fa-cog"></i> Settings
+                            <hr>
+                            <a href="index.html" id="logoutBtn2">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <!-- Total Patients -->
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Patients</h3>
+                            <div class="stat-value" data-count="1248">0</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 12% increase
+                            </div>
+                        </div>
+                        <div class="stat-chart">
+                            <canvas id="patientsChart" width="80" height="40"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Pending Claims -->
+                    <div class="stat-card warning">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Pending Claims</h3>
+                            <div class="stat-value" data-count="42">0</div>
+                            <div class="stat-change negative">
+                                <i class="fas fa-arrow-down"></i> 8% decrease
+                            </div>
+                        </div>
+                        <div class="stat-chart">
+                            <canvas id="claimsChart" width="80" height="40"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Documents Processed -->
+                    <div class="stat-card success">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Documents Processed</h3>
+                            <div class="stat-value" data-count="320">0</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 24% increase
+                            </div>
+                        </div>
+                        <div class="stat-chart">
+                            <canvas id="documentsChart" width="80" height="40"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Approval Rate -->
+                    <div class="stat-card info">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Approval Rate</h3>
+                            <div class="stat-value" data-count="94.7">0<small>%</small></div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 2.3% improvement
+                            </div>
+                        </div>
+                        <div class="stat-chart">
+                            <canvas id="approvalChart" width="80" height="40"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="chart-row">
+                    <!-- Revenue Chart -->
+                    <div class="chart-card large">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-line"></i> Revenue Trend</h3>
+                            <div class="chart-actions">
+                                <select class="chart-period">
+                                    <option>Last 7 days</option>
+                                    <option>Last 30 days</option>
+                                    <option selected>Last 90 days</option>
+                                    <option>Last year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Claims Status -->
+                    <div class="chart-card medium">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-pie-chart"></i> Claims Status</h3>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="claimsStatusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <!-- Top Procedures -->
+                    <div class="chart-card medium">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-procedures"></i> Top Procedures</h3>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="proceduresChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Processing Time -->
+                    <div class="chart-card medium">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-clock"></i> Processing Time</h3>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="processingTimeChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- AI Accuracy -->
+                    <div class="chart-card small">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-robot"></i> AI Accuracy</h3>
+                        </div>
+                        <div class="chart-body">
+                            <div class="accuracy-meter">
+                                <div class="accuracy-value">95.2%</div>
+                                <div class="accuracy-label">Medical Coding Accuracy</div>
+                                <div class="accuracy-progress">
+                                    <div class="progress-bar" style="width: 95.2%"></div>
+                                </div>
+                            </div>
+                            <div class="accuracy-stats">
+                                <div class="accuracy-stat">
+                                    <div class="stat-value">98%</div>
+                                    <div class="stat-label">ICD-10</div>
+                                </div>
+                                <div class="accuracy-stat">
+                                    <div class="stat-value">93%</div>
+                                    <div class="stat-label">CPT</div>
+                                </div>
+                                <div class="accuracy-stat">
+                                    <div class="stat-value">94%</div>
+                                    <div class="stat-label">HCPCS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activity & Tables -->
+            <section class="activity-section">
+                <div class="activity-row">
+                    <!-- Recent Activity -->
+                    <div class="activity-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                            <button class="view-all-btn">View All</button>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item success">
+                                <div class="activity-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Claim approved</strong> for Patient #P1024 (₹45,000)</p>
+                                    <span class="activity-time">Just now</span>
+                                </div>
+                            </div>
+                            <div class="activity-item warning">
+                                <div class="activity-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Document requires review</strong> for Patient #P1025</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item info">
+                                <div class="activity-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>New patient added</strong> - Anjali Sharma</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-file-upload"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Document uploaded</strong> - ECG Report.pdf</p>
+                                    <span class="activity-time">2 days ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item success">
+                                <div class="activity-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>AI coding completed</strong> for 15 documents</p>
+                                    <span class="activity-time">3 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Patients -->
+                    <div class="table-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-user-injured"></i> Recent Patients</h3>
+                            <button class="view-all-btn">View All</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="patients-table">
+                                <thead>
+                                    <tr>
+                                        <th>Patient ID</th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Condition</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#P1024</td>
+                                        <td>
+                                            <div class="patient-info">
+                                                <div class="patient-avatar">RS</div>
+                                                <div>
+                                                    <strong>Rahul Sharma</strong>
+                                                    <span>Cardiology</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>45</td>
+                                        <td>Hypertension</td>
+                                        <td><span class="status-badge active">Active</span></td>
+                                        <td>
+                                            <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                                            <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#P1025</td>
+                                        <td>
+                                            <div class="patient-info">
+                                                <div class="patient-avatar">PS</div>
+                                                <div>
+                                                    <strong>Priya Singh</strong>
+                                                    <span>Orthopedics</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>38</td>
+                                        <td>Arthritis</td>
+                                        <td><span class="status-badge pending">Pending</span></td>
+                                        <td>
+                                            <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                                            <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#P1026</td>
+                                        <td>
+                                            <div class="patient-info">
+                                                <div class="patient-avatar">AM</div>
+                                                <div>
+                                                    <strong>Amit Kumar</strong>
+                                                    <span>Neurology</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>52</td>
+                                        <td>Migraine</td>
+                                        <td><span class="status-badge active">Active</span></td>
+                                        <td>
+                                            <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                                            <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#P1027</td>
+                                        <td>
+                                            <div class="patient-info">
+                                                <div class="patient-avatar">SK</div>
+                                                <div>
+                                                    <strong>Sunita Kapoor</strong>
+                                                    <span>Oncology</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>60</td>
+                                        <td>Cancer</td>
+                                        <td><span class="status-badge completed">Completed</span></td>
+                                        <td>
+                                            <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                                            <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Assistant -->
+            <div class="ai-assistant" id="aiAssistant">
+                <button class="ai-toggle">
+                    <i class="fas fa-robot"></i>
+                </button>
+                <div class="ai-chat">
+                    <div class="ai-header">
+                        <h4><i class="fas fa-robot"></i> Mediमित्र AI Assistant</h4>
+                        <button class="ai-close"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="ai-messages">
+                        <div class="ai-message">
+                            <div class="message-content">
+                                Hello! I'm your Mediमित्र AI assistant. How can I help you with medical coding or claims today?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-input">
+                        <input type="text" placeholder="Ask me anything about medical coding..." id="aiInput">
+                        <button id="aiSend"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

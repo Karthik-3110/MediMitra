@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mediमित्र – AI Document Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/documents.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<div class="doc-shell">
+
+  <!-- HEADER -->
+  <header class="doc-header">
+    <h1>AI Document Intelligence</h1>
+    <p>Upload a medical document and ask questions from it</p>
+  </header>
+
+  <!-- UPLOAD -->
+  <section class="upload-zone">
+
+  <input type="file" id="fileInput" accept=".pdf,.txt" />
+
+  <label for="fileInput" class="upload-inner">
+    <i class="fas fa-file-medical"></i>
+    <h3>Click to upload document</h3>
+    <p>PDF or TXT only</p>
+    <span>or drag & drop here</span>
+  </label>
+
+</section>
+
+  <!-- ACTION -->
+  <section class="action-bar">
+    <button id="uploadBtn">Upload & Load Document</button>
+    <span id="statusText">Waiting for document…</span>
+  </section>
+
+  <!-- Q&A -->
+  <section class="result-panel">
+    <h3>Ask a Question</h3>
+
+    <input
+      id="questionInput"
+      placeholder="Ask something about the document..."
+    />
+
+    <button id="askBtn">Ask AI</button>
+
+    <div class="ai-output" id="qaAnswer">
+      Answer will appear here
+    </div>
+  </section>
+
+</div>
+
+<script src="js/documents.js"></script>
+</body>
+</html>
