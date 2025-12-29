@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mediमित्र – Patients</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/patients.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="patients-page">
+
+  <!-- Header -->
+  <header class="patients-header">
+    <h1>Patients</h1>
+
+    <div class="header-actions">
+      <input type="text" id="searchInput" placeholder="Search patient by name or email...">
+      <button id="refreshBtn"><i class="fas fa-sync-alt"></i></button>
+    </div>
+  </header>
+
+  <!-- Patients Table -->
+  <section class="patients-container">
+    <div class="table-header">
+      <span>Name</span>
+      <span>Email</span>
+      <span>Status</span>
+    </div>
+
+    <div id="patientsList" class="patients-list">
+      <!-- Patients will load here -->
+    </div>
+  </section>
+
+</div>
+
+<script src="js/patients.js"></script>
+</body>
+</html>

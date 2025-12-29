@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediमित्र | Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <div class="settings-container">
+        <!-- Header -->
+        <div class="settings-header">
+            <div class="header-left">
+                <h1><i class="fas fa-cog"></i> Settings</h1>
+                <p>Manage your account preferences and security settings</p>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <div class="avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="user-details">
+                        <h4 id="userName">Loading...</h4>
+                        <p id="userRole">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="settings-main">
+            <!-- Sidebar Navigation -->
+            <div class="settings-sidebar">
+                <nav class="settings-nav">
+                    <a href="#profile" class="nav-item active" data-section="profile">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                    <a href="#notifications" class="nav-item" data-section="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span>Notifications</span>
+                    </a>
+                    <a href="#security" class="nav-item" data-section="security">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security</span>
+                    </a>
+                    <a href="#preferences" class="nav-item" data-section="preferences">
+                        <i class="fas fa-palette"></i>
+                        <span>Preferences</span>
+                    </a>
+                    <a href="#privacy" class="nav-item" data-section="privacy">
+                        <i class="fas fa-lock"></i>
+                        <span>Privacy</span>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <a href="signin.html" style="text-decoration:none;">
+  <button class="btn btn-danger btn-block" id="logoutBtn">
+    <i class="fas fa-sign-out-alt"></i> Logout
+  </button>
+</a>
+
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="settings-content">
+                <!-- Profile Section -->
+                <section class="settings-section active" id="profile-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-user"></i> Profile Information</h2>
+                        <p>Update your personal information and contact details</p>
+                    </div>
+
+                    <form id="profileForm" class="settings-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" placeholder="Enter first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" placeholder="Enter last name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter email address" required>
+                            <div class="form-hint">This email will be used for account notifications</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <div class="input-with-button">
+                                <input type="tel" id="phone" placeholder="Enter phone number">
+                                <button type="button" class="btn btn-outline verify-btn">Verify</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="organization">Organization/Hospital</label>
+                            <input type="text" id="organization" placeholder="Enter organization name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department">
+                                <option value="">Select Department</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="oncology">Oncology</option>
+                                <option value="general">General Surgery</option>
+                                <option value="radiology">Radiology</option>
+                                <option value="lab">Laboratory</option>
+                                <option value="administration">Administration</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Bio/Description</label>
+                            <textarea id="bio" rows="4" placeholder="Tell us about yourself"></textarea>
+                            <div class="form-hint">Maximum 500 characters</div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelProfile">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+
+                    <!-- Avatar Upload -->
+                    <div class="avatar-upload-section">
+                        <h3><i class="fas fa-camera"></i> Profile Picture</h3>
+                        <div class="avatar-upload">
+                            <div class="avatar-preview">
+                                <div class="avatar-preview-img" id="avatarPreview">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                            </div>
+                            <div class="upload-controls">
+                                <input type="file" id="avatarInput" accept="image/*" hidden>
+                                <button type="button" class="btn btn-outline" id="uploadAvatarBtn">
+                                    <i class="fas fa-upload"></i> Upload Photo
+                                </button>
+                                <button type="button" class="btn btn-outline" id="removeAvatarBtn">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </div>
+                            <p class="upload-hint">Recommended: Square image, at least 400x400 pixels</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notifications Section -->
+                <section class="settings-section" id="notifications-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-bell"></i> Notification Preferences</h2>
+                        <p>Configure how and when you receive notifications</p>
+                    </div>
+
+                    <div class="notification-settings">
+                        <div class="notification-category">
+                            <h3><i class="fas fa-envelope"></i> Email Notifications</h3>
+                            
+                            <div class="toggle-group">
+                                <div class="toggle-item">
+                                    <div class="toggle-label">
+                                        <h4>Weekly Reports</h4>
+                                        <p>Receive weekly summary of your claims and coding activity</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="toggle-item">
+                                    <div class="toggle-label">
+                                        <h4>Claim Updates</h4>
+                                        <p>Get notified when claim status changes</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="toggle-item">
+                                    <div class="toggle-label">
+                                        <h4>Coding Suggestions</h4>
+                                        <p>Receive AI suggestions for medical coding</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="toggle-item">
+                                    <div class="toggle-label">
+                                        <h4>Product Updates</h4>
+                                        <p>Stay informed about new features and improvements</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="notification-category">
+                            <h3><i class="fas fa-mobile-alt"></i> Push Notifications</h3>
+                            
+                            <div class="toggle-group">
+                                <div class="toggle-item">
+                                    <div class="toggle-label">
+                                        <h4>Real-time Alerts</h4>
+                                        <p>Get immediate notifications for urgent updates</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="toggle-item">
+                                    <div class="toggle-label">
+                                        <h4>Team Messages</h4>
+                                        <p>Receive notifications from team members</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="toggle-item">
+                                    <div class="toggle-label">
+                                        <h4>Reminders</h4>
+                                        <p>Get reminders for pending tasks</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="notification-category">
+                            <h3><i class="fas fa-calendar-alt"></i> Notification Schedule</h3>
+                            
+                            <div class="form-group">
+                                <label>Quiet Hours</label>
+                                <div class="time-range">
+                                    <select id="quietStart">
+                                        <option value="22:00">10:00 PM</option>
+                                        <option value="23:00">11:00 PM</option>
+                                        <option value="00:00">12:00 AM</option>
+                                    </select>
+                                    <span>to</span>
+                                    <select id="quietEnd">
+                                        <option value="06:00">6:00 AM</option>
+                                        <option value="07:00">7:00 AM</option>
+                                        <option value="08:00">8:00 AM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Notification Frequency</label>
+                                <select id="notificationFrequency">
+                                    <option value="immediate">Immediately</option>
+                                    <option value="hourly">Hourly Digest</option>
+                                    <option value="daily">Daily Digest</option>
+                                    <option value="weekly">Weekly Digest</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="resetNotifications">Reset to Default</button>
+                            <button type="button" class="btn btn-primary" id="saveNotifications">Save Preferences</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Section -->
+                <section class="settings-section" id="security-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-shield-alt"></i> Security Settings</h2>
+                        <p>Manage your account security and access controls</p>
+                    </div>
+
+                    <!-- Change Password -->
+                    <div class="security-card">
+                        <h3><i class="fas fa-key"></i> Change Password</h3>
+                        <form id="passwordForm" class="settings-form">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="currentPassword" placeholder="Enter current password" required>
+                                    <button type="button" class="toggle-password" data-target="currentPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="newPassword" placeholder="Enter new password" required>
+                                    <button type="button" class="toggle-password" data-target="newPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-bar"></div>
+                                    <div class="strength-text">Password strength: <span id="strengthText">Weak</span></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="confirmPassword" placeholder="Confirm new password" required>
+                                    <button type="button" class="toggle-password" data-target="confirmPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="password-requirements">
+                                <h4>Password Requirements:</h4>
+                                <ul>
+                                    <li class="req-length"><i class="fas fa-circle"></i> Minimum 8 characters</li>
+                                    <li class="req-uppercase"><i class="fas fa-circle"></i> At least one uppercase letter</li>
+                                    <li class="req-lowercase"><i class="fas fa-circle"></i> At least one lowercase letter</li>
+                                    <li class="req-number"><i class="fas fa-circle"></i> At least one number</li>
+                                    <li class="req-special"><i class="fas fa-circle"></i> At least one special character</li>
+                                </ul>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Update Password</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Two-Factor Authentication -->
+                    <div class="security-card">
+                        <h3><i class="fas fa-mobile-alt"></i> Two-Factor Authentication</h3>
+                        <div class="two-factor-status">
+                            <div class="status-info">
+                                <div class="status-indicator active"></div>
+                                <div>
+                                    <h4>2FA is <span class="status-text">Enabled</span></h4>
+                                    <p>Add an extra layer of security to your account</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline" id="manage2faBtn">Manage 2FA</button>
+                        </div>
+
+                        <div class="two-factor-methods" id="twoFactorMethods">
+                            <div class="method-card">
+                                <div class="method-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>Authenticator App</h4>
+                                    <p>Use Google Authenticator or similar app</p>
+                                    <div class="method-status active">Active</div>
+                                </div>
+                                <button class="btn btn-outline">Configure</button>
+                            </div>
+
+                            <div class="method-card">
+                                <div class="method-icon">
+                                    <i class="fas fa-sms"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>SMS Verification</h4>
+                                    <p>Receive codes via text message</p>
+                                    <div class="method-status">Inactive</div>
+                                </div>
+                                <button class="btn btn-outline">Enable</button>
+                            </div>
+
+                            <div class="method-card">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>Email Verification</h4>
+                                    <p>Receive codes via email</p>
+                                    <div class="method-status">Inactive</div>
+                                </div>
+                                <button class="btn btn-outline">Enable</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Session Management -->
+                    <div class="security-card">
+                        <h3><i class="fas fa-desktop"></i> Active Sessions</h3>
+                        <div class="sessions-list">
+                            <div class="session-item">
+                                <div class="session-icon">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <div class="session-info">
+                                    <h4>Windows Desktop - Chrome</h4>
+                                    <p>New Delhi, India • Current session</p>
+                                    <small>Last active: Just now</small>
+                                </div>
+                                <button class="btn btn-outline btn-danger" disabled>Current</button>
+                            </div>
+
+                            <div class="session-item">
+                                <div class="session-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="session-info">
+                                    <h4>iPhone 14 - Safari</h4>
+                                    <p>Mumbai, India</p>
+                                    <small>Last active: 2 hours ago</small>
+                                </div>
+                                <button class="btn btn-outline">Revoke</button>
+                            </div>
+
+                            <div class="session-item">
+                                <div class="session-icon">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <div class="session-info">
+                                    <h4>MacBook Pro - Firefox</h4>
+                                    <p>Bangalore, India</p>
+                                    <small>Last active: 1 day ago</small>
+                                </div>
+                                <button class="btn btn-outline">Revoke</button>
+                            </div>
+                        </div>
+
+                        <div class="session-actions">
+                            <button class="btn btn-danger" id="revokeAllBtn">
+                                <i class="fas fa-sign-out-alt"></i> Revoke All Other Sessions
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Preferences Section -->
+                <section class="settings-section" id="preferences-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-palette"></i> Preferences</h2>
+                        <p>Customize your Mediमित्र experience</p>
+                    </div>
+
+                    <!-- Theme Preferences -->
+                    <div class="preference-card">
+                        <h3><i class="fas fa-moon"></i> Theme</h3>
+                        <div class="theme-options">
+                            <div class="theme-option" data-theme="light">
+                                <div class="theme-preview light">
+                                    <div class="theme-header"></div>
+                                    <div class="theme-content">
+                                        <div class="theme-card"></div>
+                                        <div class="theme-card"></div>
+                                    </div>
+                                </div>
+                                <div class="theme-label">
+                                    <input type="radio" name="theme" id="themeLight" checked>
+                                    <label for="themeLight">Light</label>
+                                </div>
+                            </div>
+
+                            <div class="theme-option" data-theme="dark">
+                                <div class="theme-preview dark">
+                                    <div class="theme-header"></div>
+                                    <div class="theme-content">
+                                        <div class="theme-card"></div>
+                                        <div class="theme-card"></div>
+                                    </div>
+                                </div>
+                                <div class="theme-label">
+                                    <input type="radio" name="theme" id="themeDark">
+                                    <label for="themeDark">Dark</label>
+                                </div>
+                            </div>
+
+                            <div class="theme-option" data-theme="auto">
+                                <div class="theme-preview auto">
+                                    <div class="theme-half light"></div>
+                                    <div class="theme-half dark"></div>
+                                </div>
+                                <div class="theme-label">
+                                    <input type="radio" name="theme" id="themeAuto">
+                                    <label for="themeAuto">Auto</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Language & Region -->
+                    <div class="preference-card">
+                        <h3><i class="fas fa-globe"></i> Language & Region</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="language">Language</label>
+                                <select id="language">
+                                    <option value="en">English</option>
+                                    <option value="hi">Hindi</option>
+                                    <option value="te">Telugu</option>
+                                    <option value="ta">Tamil</option>
+                                    <option value="bn">Bengali</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timezone">Timezone</label>
+                                <select id="timezone">
+                                    <option value="IST">Indian Standard Time (IST)</option>
+                                    <option value="GMT">Greenwich Mean Time (GMT)</option>
+                                    <option value="EST">Eastern Standard Time (EST)</option>
+                                    <option value="PST">Pacific Standard Time (PST)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateFormat">Date Format</label>
+                            <select id="dateFormat">
+                                <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Display Settings -->
+                    <div class="preference-card">
+                        <h3><i class="fas fa-desktop"></i> Display Settings</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-label">
+                                    <h4>Compact Mode</h4>
+                                    <p>Show more content in less space</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="toggle-item">
+                                <div class="toggle-label">
+                                    <h4>Animations</h4>
+                                    <p>Enable interface animations</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="toggle-item">
+                                <div class="toggle-label">
+                                    <h4>High Contrast Mode</h4>
+                                    <p>Increase color contrast for better visibility</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data & Storage -->
+                    <div class="preference-card">
+                        <h3><i class="fas fa-database"></i> Data & Storage</h3>
+                        <div class="storage-info">
+                            <div class="storage-progress">
+                                <div class="progress-bar" style="width: 65%"></div>
+                            </div>
+                            <div class="storage-stats">
+                                <span>6.5 GB of 10 GB used</span>
+                                <button class="btn btn-outline">Upgrade Storage</button>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-outline" id="clearCacheBtn">
+                                <i class="fas fa-broom"></i> Clear Cache
+                            </button>
+                            <button class="btn btn-outline" id="downloadDataBtn">
+                                <i class="fas fa-download"></i> Download My Data
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" id="resetPreferences">Reset Preferences</button>
+                        <button class="btn btn-primary" id="savePreferences">Save Preferences</button>
+                    </div>
+                </section>
+
+                <!-- Privacy Section -->
+                <section class="settings-section" id="privacy-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-lock"></i> Privacy Settings</h2>
+                        <p>Control your data privacy and sharing preferences</p>
+                    </div>
+
+                    <!-- Data Sharing -->
+                    <div class="privacy-card">
+                        <h3><i class="fas fa-share-alt"></i> Data Sharing</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-label">
+                                    <h4>Usage Analytics</h4>
+                                    <p>Share anonymous usage data to help improve Mediमित्र</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="toggle-item">
+                                <div class="toggle-label">
+                                    <h4>Marketing Communications</h4>
+                                    <p>Receive emails about new features and promotions</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="toggle-item">
+                                <div class="toggle-label">
+                                    <h4>Third-party Sharing</h4>
+                                    <p>Allow sharing of anonymized data with research partners</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Visibility -->
+                    <div class="privacy-card">
+                        <h3><i class="fas fa-eye"></i> Profile Visibility</h3>
+                        <div class="form-group">
+                            <label>Who can see your profile?</label>
+                            <select id="profileVisibility">
+                                <option value="private">Only Me</option>
+                                <option value="team">Team Members</option>
+                                <option value="organization">Organization</option>
+                                <option value="public">Everyone</option>
+                            </select>
+                        </div>
+
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-label">
+                                    <h4>Show Online Status</h4>
+                                    <p>Allow others to see when you're active</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Retention -->
+                    <div class="privacy-card">
+                        <h3><i class="fas fa-history"></i> Data Retention</h3>
+                        <div class="form-group">
+                            <label>Auto-delete Inactive Data</label>
+                            <select id="dataRetention">
+                                <option value="never">Never</option>
+                                <option value="30">After 30 days</option>
+                                <option value="90">After 90 days</option>
+                                <option value="365">After 1 year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Account Deletion -->
+                    <div class="privacy-card danger">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Account Deletion</h3>
+                        <p>Permanently delete your account and all associated data. This action cannot be undone.</p>
+                        <div class="warning-box">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <h4>Warning</h4>
+                                <p>Deleting your account will remove all your data including medical codes, claims, and settings. This action is irreversible.</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger" id="deleteAccountBtn">
+                            <i class="fas fa-trash"></i> Delete My Account
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast">
+            <div class="toast-content">
+                <i class="fas fa-check-circle"></i>
+                <span class="toast-message">Settings saved successfully!</span>
+            </div>
+            <button class="toast-close">&times;</button>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div class="modal" id="confirmationModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Confirm Action</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalMessage">Are you sure you want to proceed?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="modalCancel">Cancel</button>
+                    <button class="btn btn-primary" id="modalConfirm">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/settings.js"></script>
+</body>
+</html>
