@@ -54,3 +54,7 @@ Python
 AI-based document processing (NLP & embeddings)
 
 
+Youtube Demo video - https://youtu.be/oykndDKGr2I?si=AYcUpw6MPD59KWJO
+Documment link - https://siescms-my.sharepoint.com/:w:/g/personal/karthikvmce124_gst_sies_edu_in/IQBWlQa7XDJtS5ZpVsqEUG9UAd5wtdM6VHY2Zdt96r9uJls?e=SHNxJ1
+
+
