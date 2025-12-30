@@ -10,8 +10,10 @@ Git Steps (How to Access the Project)
 Clone the repository
 git clone https://github.com/Karthik-3110/MediMitra.git
 
+
 Move into the project directory
 cd MediMitra
+
 
 Install dependencies (for backend)
 npm install
@@ -19,20 +21,25 @@ npm install
 Set up environment variables
 cp .env.example .env
 
+
 (Add required keys in .env)
 Run the backend server(inside medimitra-backend)
 npm run dev
+
 
 Run Python AI service
 
 cd python-ai
 pip install -r requirements.txt
 
-in terminal 1
+
+in terminal 1:
 uvicorn app:app --port 8000 --reload
 
-in terminal 2
+
+in terminal 2:
 uvicorn documents_app:app --port 8001 --reload
+
 
 Open the frontend
 Open frontend/index.html in a browser
@@ -45,16 +52,21 @@ HTML
 CSS
 JavaScript
 
+
 Backend
 Node.js
 Express.js
+
 
 AI / ML
 Python
 AI-based document processing (NLP & embeddings)
 
 
+
 Youtube Demo video - https://youtu.be/oykndDKGr2I?si=AYcUpw6MPD59KWJO
+
+
 Documment link - https://siescms-my.sharepoint.com/:w:/g/personal/karthikvmce124_gst_sies_edu_in/IQBWlQa7XDJtS5ZpVsqEUG9UAd5wtdM6VHY2Zdt96r9uJls?e=SHNxJ1
 
 
