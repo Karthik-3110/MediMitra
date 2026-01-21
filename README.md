@@ -48,10 +48,8 @@ The goal is to allow medical staff to focus more on **patient care** rather than
 
 ## 📂 Project Structure
 MediMitra/
-│
 ├── database/
 │   └── init.sql
-│
 ├── frontend/
 │   ├── css/
 │   │   ├── auth.css
@@ -62,7 +60,6 @@ MediMitra/
 │   │   ├── settings.css
 │   │   ├── signin.css
 │   │   └── styles.css
-│   │
 │   ├── js/
 │   │   ├── animations.js
 │   │   ├── auth.js
@@ -74,7 +71,6 @@ MediMitra/
 │   │   ├── script.js
 │   │   ├── settings.js
 │   │   └── signin.js
-│   │
 │   ├── dashboard.html
 │   ├── documents.html
 │   ├── index.html
@@ -83,14 +79,12 @@ MediMitra/
 │   ├── settings.html
 │   ├── signin.html
 │   └── signup.html
-│
 ├── medimitra-backend/
 │   ├── node_modules/
 │   ├── src/
 │   ├── package.json
 │   ├── package-lock.json
 │   └── server.js
-│
 ├── python-ai/
 │   ├── app.py
 │   ├── chatbot.py
@@ -98,10 +92,10 @@ MediMitra/
 │   ├── document_qa.py
 │   ├── documents_app.py
 │   └── requirements.txt
-│
 ├── .gitignore
 ├── README.md
 └── package-lock.json
+
 
 
 ⚙️ Installation & Setup
