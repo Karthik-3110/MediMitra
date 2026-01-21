@@ -49,36 +49,90 @@ The goal is to allow medical staff to focus more on **patient care** rather than
 ## 📂 Project Structure
 MediMitra/
 │
+├── database/
+│   └── init.sql
+│
 ├── frontend/
-│ ├── index.html
-│ ├── css/
-│ └── js/
+│   ├── css/
+│   │   ├── auth.css
+│   │   ├── dashboard.css
+│   │   ├── documents.css
+│   │   ├── patients.css
+│   │   ├── reports.css
+│   │   ├── settings.css
+│   │   ├── signin.css
+│   │   └── styles.css
+│   │
+│   ├── js/
+│   │   ├── animations.js
+│   │   ├── auth.js
+│   │   ├── dashboard.js
+│   │   ├── documents.js
+│   │   ├── main.js
+│   │   ├── patients.js
+│   │   ├── reports.js
+│   │   ├── script.js
+│   │   ├── settings.js
+│   │   └── signin.js
+│   │
+│   ├── dashboard.html
+│   ├── documents.html
+│   ├── index.html
+│   ├── patients.html
+│   ├── reports.html
+│   ├── settings.html
+│   ├── signin.html
+│   └── signup.html
 │
 ├── medimitra-backend/
-│ ├── routes/
-│ ├── controllers/
-│ ├── models/
-│ ├── config/
-│ ├── app.js
-│ └── package.json
+│   ├── node_modules/
+│   ├── src/
+│   ├── package.json
+│   ├── package-lock.json
+│   └── server.js
 │
 ├── python-ai/
-│ ├── app.py
-│ ├── documents_app.py
-│ ├── services/
-│ ├── utils/
-│ └── requirements.txt
+│   ├── app.py
+│   ├── chatbot.py
+│   ├── config.py
+│   ├── document_qa.py
+│   ├── documents_app.py
+│   └── requirements.txt
 │
-├── .env.example
-├── package.json
-└── README.md
+├── .gitignore
+├── README.md
+└── package-lock.json
 
-## ⚙️ Installation & Setup
- Clone the Repository
-bash:
+
+⚙️ Installation & Setup
+1. Clone the Repository
 git clone https://github.com/Karthik-3110/MediMitra.git
 cd MediMitra
 
+2. Install Backend Dependencies
+For Node.js backend:
+cd medimitra-backend
+npm install
+
+3. Install Python AI Dependencies
+For Python AI microservices:
+cd ../python-ai
+pip install -r requirements.txt
+
+4. Set Up the Database
+Make sure PostgreSQL is installed and running. Then execute:
+psql -U your_username -d your_database -f ../database/init.sql
+
+5. Run the Application
+Start the Node.js backend:
+cd ../medimitra-backend
+node server.js
+Start the Python AI services:
+cd ../python-ai
+python app.py
+
+Open the frontend
+Open frontend/index.html in your browser or serve it via a local server.
 
 Documment link - https://siescms-my.sharepoint.com/:w:/g/personal/karthikvmce124_gst_sies_edu_in/IQBWlQa7XDJtS5ZpVsqEUG9UAd5wtdM6VHY2Zdt96r9uJls?e=SHNxJ1
 
