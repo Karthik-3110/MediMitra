@@ -53,21 +53,17 @@ The goal is to allow medical staff to focus more on **patient care** rather than
 1. Clone the Repository
 git clone https://github.com/Karthik-3110/MediMitra.git
 cd MediMitra
-
 2. Install Backend Dependencies
 For Node.js backend:
 cd medimitra-backend
 npm install
-
 3. Install Python AI Dependencies
 For Python AI microservices:
 cd ../python-ai
 pip install -r requirements.txt
-
 4. Set Up the Database
 Make sure PostgreSQL is installed and running. Then execute:
 psql -U your_username -d your_database -f ../database/init.sql
-
 5. Run the Application
 Start the Node.js backend:
 cd ../medimitra-backend
@@ -76,7 +72,6 @@ Start the Python AI services:
 cd ../python-ai
 python app.py
 
-Open the frontend
 Open frontend/index.html in your browser or serve it via a local server.
 
 Documment link - https://siescms-my.sharepoint.com/:w:/g/personal/karthikvmce124_gst_sies_edu_in/IQBWlQa7XDJtS5ZpVsqEUG9UAd5wtdM6VHY2Zdt96r9uJls?e=SHNxJ1
