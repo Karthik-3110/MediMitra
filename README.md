@@ -46,57 +46,8 @@ The goal is to allow medical staff to focus more on **patient care** rather than
 - Python AI services process documents and handle intelligent Q&A  
 - PostgreSQL stores document metadata and processed information  
 
-## 📂 Project Structure
-MediMitra/
-├── database/
-│   └── init.sql
-├── frontend/
-│   ├── css/
-│   │   ├── auth.css
-│   │   ├── dashboard.css
-│   │   ├── documents.css
-│   │   ├── patients.css
-│   │   ├── reports.css
-│   │   ├── settings.css
-│   │   ├── signin.css
-│   │   └── styles.css
-│   ├── js/
-│   │   ├── animations.js
-│   │   ├── auth.js
-│   │   ├── dashboard.js
-│   │   ├── documents.js
-│   │   ├── main.js
-│   │   ├── patients.js
-│   │   ├── reports.js
-│   │   ├── script.js
-│   │   ├── settings.js
-│   │   └── signin.js
-│   ├── dashboard.html
-│   ├── documents.html
-│   ├── index.html
-│   ├── patients.html
-│   ├── reports.html
-│   ├── settings.html
-│   ├── signin.html
-│   └── signup.html
-├── medimitra-backend/
-│   ├── node_modules/
-│   ├── src/
-│   ├── package.json
-│   ├── package-lock.json
-│   └── server.js
-├── python-ai/
-│   ├── app.py
-│   ├── chatbot.py
-│   ├── config.py
-│   ├── document_qa.py
-│   ├── documents_app.py
-│   └── requirements.txt
-├── .gitignore
-├── README.md
-└── package-lock.json
-
-
+## 📂 Project Structure:
+<img width="421" height="841" alt="Screenshot 2026-01-21 180743" src="https://github.com/user-attachments/assets/020c627e-e7d4-464c-beb2-7c8ee9baf095" />
 
 ⚙️ Installation & Setup
 1. Clone the Repository
